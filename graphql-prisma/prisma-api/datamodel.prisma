@@ -1,0 +1,14 @@
+type Author @db(name: "authors") {
+  id: ID! @id
+  name: String!
+  country: String!
+  books: [Book!]! 
+}
+
+type Book @db(name: "books") {
+  id: ID! @id
+  title: String!
+  desc: String!
+  quantity: Int!
+  author: Author! @relation(link: INLINE)
+}
